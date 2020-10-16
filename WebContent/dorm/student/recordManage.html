@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>学生端 考勤记录</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/dorm.css" rel='stylesheet' type='text/css' />
+<link href="../css/bootstrap/bootstrap.css" rel='stylesheet'
+	type='text/css' />
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/vue/vue.js"></script>
+<script src="../js/vue/axios.min.js"></script>
+</head>
+
+<body>
+
+	<!-- banner -->
+	<div class="banner">
+
+		<div class="header">
+			<div class="logo" id="session_app">
+				<a href="javascript:window.location.reload();">{{login.name}}</a>
+			</div>
+			<div class="top-menu">
+
+				<ul class="navig">
+					<li><a href="student_index.html">首页</a></li>
+					<li class="active"><a href="#">考勤记录</a></li>
+					<li><a href="punchClockManage.html">打卡记录</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!---->
+
+	<!--  -->
+
+	<div class="center-content" id="app">
+		<div class="left">
+			<div class="gongGao">
+				<div class="title">公 告</div>
+				<div class="context import">
+					<marquee width="100%" height="100%" direction="up"
+						scrolldelay="300">
+						<div v-for="item in noticeList">
+							<label>发布人：{{item.noticePerson}}</label><br> <label>发布时间：{{item.date}}</label><br>
+							<label>{{item.content}}</label><br> <label>-------------------------------------------</label><br>
+						</div>
+					</marquee>
+
+				</div>
+			</div>
+
+
+		</div>
+		<div class="right">
+			<div class="data_list">
+				<div class="data_list_title">考勤记录</div>
+				<form name="myForm" class="form-search" method="post" action="#">
+					<span class="data_search"> &nbsp;<input v-model="search.key"
+						id="s_dormManagerText" name="s_dormManagerText" type="date"
+						style="width: 120px; height: 30px;"
+						class="input-medium search-query"> &nbsp;
+						<button onclick="searchRecordMsg()" type="button"
+							class="btn btn-info">搜索</button>
+					</span>
+				</form>
+				<div>
+					<table class="table table-hover table-striped table-bordered">
+						<tr>
+							<th>编号</th>
+							<th>日期</th>
+							<th>姓名</th>
+							<th>学号</th>
+							<th>宿舍楼</th>
+							<th>寝室号</th>
+							<th>说明</th>
+						</tr>
+
+						<tr v-for="(item,index) in recordManageList">
+							<td>{{index+1}}</td>
+							<td>{{item.date}}</td>
+							<td>{{item.studentName}}</td>
+							<td>{{item.studentNumber}}</td>
+							<td>{{item.dormBuildId==0?'暂未安排':item.dormBuildId+'栋'}}</td>
+							<td>{{item.dormName}}</td>
+							<td>{{item.detail}}</td>
+
+						</tr>
+
+					</table>
+				</div>
+
+				<div class="pagination pagination-centered">
+					<div class="pagination_box">
+						<button id="page_up" type="button" onclick="pageUp()"
+							class="page_up">上一页</button>
+						<div class="page_cur">{{pagination.pageNum}}/{{pagination.pageTotal}}</div>
+						<button id="page_down" onclick="pageDown()" type="button"
+							class="page_down">下一页</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/vue/student_recordManage.js"></script>
+	<script src="../js/vue/student_loginManage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+
+<title></title>
+<link rel="stylesheet" type="text/css" href="dorm/css/frank.css">
+<script src="dorm/js/vue/vue.js"></script>
+<script src="dorm/js/vue/axios.min.js"></script>
+<script src="dorm/js/jquery.min.js"></script>
+<script src="dorm/js/bg.js"></script>
+
+</head>
+
+<body id="body">
+	<div id="bg"></div>
+	<div class="login-box box1">
+		<div class="bg_title">欢 迎 访 问 寝 室 管 理 平 台</div>
+		<div class="admin">
+			<div class="admin-titel titel">我是系统管理员</div>
+			<div class="admin-content content">
+				<ul>
+					<li>公告管理</li>
+					<li>宿舍楼管理</li>
+					<li>寝室管理</li>
+					<li>学生管理</li>
+					<li>考勤、打卡管理</li>
+				</ul>
+				<button onclick="move('我是系统管理员','admin')" type="button">点我登录</button>
+			</div>
+		</div>
+		<div class="dormManage">
+			<div class="dormManage-titel titel">我是宿舍管理员</div>
+			<div class="dormManage-content content">
+				<ul>
+					<li>查看公告</li>
+					<li>查看、删除自己管理的学生</li>
+					<li>添加、修改、删除考勤记录</li>
+					<li>查看学生打卡记录</li>
+					<li>查看、修改个人信息</li>
+				</ul>
+				<button onclick="move('我是宿舍管理员','dormManager')" type="button">点我登录</button>
+			</div>
+		</div>
+		<div class="student">
+			<div class="student-titel titel">我是学生</div>
+			<div class="student-content content">
+				<ul>
+					<li>查看公告</li>
+					<li>查看考勤记录</li>
+					<li>完成打卡任务，查看打卡记录</li>
+					<li>查看、修改个人信息</li>
+				</ul>
+				<button onclick="move('我是学生','student')" type="button">点我登录</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="login-box box2">
+		<div class="bg_title">欢 迎 你 访 问 寝 室 管 理 平 台</div>
+
+		<div class="student content">
+			<div class="student-titel titel role_titel"></div>
+			<div class="student-content content">
+				<div class="left">
+					<ul>
+						<li>系统管理员：用户名【admin】密码【123】</li>
+						<li>宿舍管理员：用户名【dorm】密码【123】</li>
+						<li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生：用户名【002】密码【123】</li>
+					</ul>
+				</div>
+				<div class="right" id="login_app">
+					<ul>
+						<li></li>
+						<li>用户名：<input required="required" v-model="login.userName"
+							type="text" placeholder="输入用户名" />
+						</li>
+
+						<li>密&nbsp;&nbsp;&nbsp;码：<input required="required"
+							v-model="login.password" type="password" placeholder="输入密码" /> <input
+							id="role" type="hidden" />
+						</li>
+
+						<button onclick="login()" class="button">登录</button>
+						<li class="a"><a href=""> 重新选择角色</a> &nbsp;&nbsp;</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="dorm/js/vue/loginManage.js"></script>
+</body>
+
+</html>
