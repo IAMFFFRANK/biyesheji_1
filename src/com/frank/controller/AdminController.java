@@ -1,19 +1,11 @@
 package com.frank.controller;
-/**
- * 系统管理员
- * @author C you again[公众号]
- *
- */
-
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -21,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.frank.entity.Admin;
 import com.frank.entity.Dorm;
@@ -34,16 +25,12 @@ import com.frank.entity.PunchClockRecord;
 import com.frank.entity.Result;
 import com.frank.entity.Student;
 import com.frank.service.IAdminService;
-
 @Controller
 @ResponseBody
 public class AdminController {
-	
 	@Autowired
 	private IAdminService adminServiceImpl;
-	
 	/*-------------------------宿管---------------------------*/
-	
 	@RequestMapping("/getDormManage")
 	public PageResult getDormManage(HttpServletRequest request){
 		Integer pageNum=1;
@@ -60,7 +47,6 @@ public class AdminController {
 		System.out.println("pageSize="+pageSize);
 		return adminServiceImpl.getDormManage(pageNum,pageSize,filter,key);
 	}
-	
 	@RequestMapping("addDormManage")
 	public Result addDormManage(@RequestBody DormManage dormManage) {
 		try {
@@ -72,12 +58,10 @@ public class AdminController {
 			return new Result(false, "添加失败");
 		}
 	}
-	
 	@RequestMapping("getDormMangerById")
 	public DormManage getDormMangerById(Integer dormManId) {
 		return adminServiceImpl.getDormMangerById(dormManId);
 	}
-	
 	@RequestMapping("updataDormManageById")
 	public Result updataDormManageById(@RequestBody DormManage dormManage) {
 		try {
@@ -89,7 +73,6 @@ public class AdminController {
 			return new Result(false, "更新失败");
 		}
 	}
-	
 	@RequestMapping("dormManagerDeleteById")
 	public Result dormManagerDeleteById(HttpServletRequest request) {
 		Integer dormManId=0;
@@ -105,9 +88,7 @@ public class AdminController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
 	/*-------------------------宿管---------------------------*/
-	
 	/*-------------------------学生---------------------------*/
 	@RequestMapping("/getStudentManage")
 	public PageResult getStudentManage(HttpServletRequest request){
@@ -125,7 +106,6 @@ public class AdminController {
 		System.out.println("pageSize="+pageSize);
 		return adminServiceImpl.getStudentManage(pageNum, pageSize, filter, key);
 	}
-	
 	@RequestMapping("addStudentManage")
 	public Result addStudentManage(@RequestBody Student student) {
 		try {
@@ -137,12 +117,10 @@ public class AdminController {
 			return new Result(false, "添加失败");
 		}
 	}
-	
 	@RequestMapping("getStudentMangerById")
 	public Student getStudentMangerById(Integer studentId) {
 		return adminServiceImpl.getStudentMangerById(studentId);
 	}
-	
 	@RequestMapping("updataStudentManageById")
 	public Result updataStudentManageById(@RequestBody Student student) {
 		try {
@@ -155,7 +133,6 @@ public class AdminController {
 			return new Result(false, "更新失败");
 		}
 	}
-	
 	@RequestMapping("studentManagerDeleteById")
 	public Result studentManagerDeleteById(HttpServletRequest request) {
 		Integer studentId=0;
@@ -171,12 +148,8 @@ public class AdminController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
 	/*-------------------------学生---------------------------*/
-	
-	
 	/*-------------------------宿舍楼---------------------------*/
-	
 	@RequestMapping("/getBuildManage")
 	public PageResult getBuildManage(HttpServletRequest request){
 		Integer pageNum=1;
@@ -193,7 +166,6 @@ public class AdminController {
 		System.out.println("pageSize="+pageSize);
 		return adminServiceImpl.getBuildManage(pageNum,pageSize,filter,key);
 	}
-	
 	@RequestMapping("addBuildManage")
 	public Result addBuildManage(@RequestBody DormBuild dormBuild) {
 		try {
@@ -205,12 +177,10 @@ public class AdminController {
 			return new Result(false, "添加失败");
 		}
 	}
-	
 	@RequestMapping("getBuildMangerById")
 	public DormBuild getBuildMangerById(Integer dormBuildId) {
 		return adminServiceImpl.getBuildMangerById(dormBuildId);
 	}
-	
 	@RequestMapping("updataBuildManageById")
 	public Result updataBuildManageById(@RequestBody DormBuild dormBuild) {
 		try {
@@ -222,7 +192,6 @@ public class AdminController {
 			return new Result(false, "更新失败");
 		}
 	}
-	
 	@RequestMapping("buildManagerDeleteById")
 	public Result buildManagerDeleteById(HttpServletRequest request) {
 		Integer dormBuildId=0;
@@ -238,18 +207,15 @@ public class AdminController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
 	@RequestMapping("getDormMangerByBuildId")
 	public List<DormManage> getDormMangerByBuildId(Integer dormBuildId){
 		System.out.println("dormBuildId="+dormBuildId);
 		return adminServiceImpl.getDormMangerByBuildId(dormBuildId);
 	}
-	
 	@RequestMapping("getDormManage2")
 	public List<DormManage> getDormManage(){
 		return adminServiceImpl.getDormManage2();
 	}
-	
 	@RequestMapping("addDormManageToBuild")
 	public Result addDormManageToBuild(HttpServletRequest request) {
 		Integer dormBuildId=0;
@@ -268,9 +234,7 @@ public class AdminController {
 			e.printStackTrace();
 			return new Result(false, "删除失败");
 		}
-		
 	}
-	
 	@RequestMapping("removeaDormManageToBuild")
 	public Result removeaDormManageToBuild(HttpServletRequest request) {
 		Integer dormManId=0;
@@ -286,13 +250,8 @@ public class AdminController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
-	
 	/*-------------------------宿舍楼---------------------------*/
-	
-	
 	/*-------------------------考勤---------------------------*/
-	
 	@RequestMapping("/getRecordManage")
 	public PageResult getRecordManage(HttpServletRequest request){
 		Integer pageNum=1;
@@ -309,7 +268,6 @@ public class AdminController {
 		System.out.println("pageSize="+pageSize);
 		return adminServiceImpl.getRecordManage(pageNum,pageSize,filter,key);
 	}
-	
 	@RequestMapping("recordManagerDeleteById")
 	public Result recordManagerDeleteById(HttpServletRequest request) {
 		Integer recordId=0;
@@ -325,15 +283,8 @@ public class AdminController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
-	
 	/*-------------------------考勤---------------------------*/
-
-	
-	
 	/*-------------------------公告---------------------------*/
-	
-	
 	@RequestMapping("/getNoticeManage")
 	public PageResult getNoticeManage(HttpServletRequest request){
 		Integer pageNum=1;
@@ -350,8 +301,6 @@ public class AdminController {
 		System.out.println("pageSize="+pageSize);
 		return adminServiceImpl.getNoticeManage(pageNum,pageSize,filter,key);
 	}
-	
-	
 	@RequestMapping("addNoticeManage")
 	public Result addNoticeManage(@RequestBody Notice notice) {
 		try {
@@ -363,13 +312,10 @@ public class AdminController {
 			return new Result(false, "添加失败");
 		}
 	}
-	
-	
 	@RequestMapping("getNoticeMangerById")
 	public Notice getNoticeMangerById(Integer noticeId) {
 		return adminServiceImpl.getNoticeMangerById(noticeId);
 	}
-	
 	@RequestMapping("updataNoticeManageById")
 	public Result updataNoticeManageById(@RequestBody Notice notice) {
 		try {
@@ -381,7 +327,6 @@ public class AdminController {
 			return new Result(false, "更新失败");
 		}
 	}
-	
 	@RequestMapping("noticeManagerDeleteById")
 	public Result noticeManagerDeleteById(HttpServletRequest request) {
 		Integer noticeId=0;
@@ -397,17 +342,12 @@ public class AdminController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
 	/*-------------------------公告---------------------------*/
-	
-	
 	/*-------------------------我的---------------------------*/
-	
 	@RequestMapping("getMyMsgById")
 	public Admin getMyMsgById(@RequestBody Admin admin) {
 		return adminServiceImpl.getMyMsgById(admin.getAdminId());
 	}
-	
 	@RequestMapping("updateMyMsgById")
 	public Result updateMyMsgById(HttpServletRequest request ,@RequestBody Admin admin) {
 		try {
@@ -426,7 +366,6 @@ public class AdminController {
 			return new Result(false, "更新失败");
 		}
 	}
-	
 	@RequestMapping("updatePsd")
 	public Result updatePsd(@RequestBody Admin admin) {
 		try {
@@ -439,12 +378,8 @@ public class AdminController {
 			return new Result(false, "更新失败");
 		}
 	} 
-	
 	/*-------------------------我的---------------------------*/
-	
-	
 	/*-------------------------打卡---------------------------*/
-	
 	@RequestMapping("/getPunchClockManage")
 	public PageResult getPunchClockManage(HttpServletRequest request){
 		Integer pageNum=1;
@@ -457,11 +392,8 @@ public class AdminController {
 		if(request.getParameter("pageSize")!=null && request.getParameter("pageSize")!="") {
 			pageSize=Integer.parseInt(request.getParameter("pageSize"));
 		}
-
 		return adminServiceImpl.getPunchClockManage(pageNum,pageSize,filter,key);
 	}
-	
-	
 	@RequestMapping("addPunchClockManageMsg")
 	public Result addPunchClockManageMsg(@RequestBody PunchClock punchClock) {
 		try {
@@ -486,10 +418,8 @@ public class AdminController {
 				punchClockRecord.setDormBuildId(student.getDormBuildId());
 				punchClockRecord.setRecord(false);
 				punchClockRecord.setPunckClockContent("");
-				
 				adminServiceImpl.insertIntoPunchClockRecord(punchClockRecord);
 			}
-			
 			return new Result(true, "添加成功");
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -497,12 +427,10 @@ public class AdminController {
 			return new Result(false, "添加失败");
 		}
 	}
-	
 	@RequestMapping("getPunchClockMangerById")
 	public PunchClock getPunchClockMangerById(String id) {
 		return adminServiceImpl.getPunchClockMangerById(id);
 	}
-	
 	@RequestMapping("updataPunchClockManageMsgById")
 	public Result updataPunchClockManageMsgById(@RequestBody PunchClock punchClock) {
 		try {
@@ -516,7 +444,6 @@ public class AdminController {
 			return new Result(false, "更新失败");
 		}
 	}
-	
 	@RequestMapping("punchClockManagerDeleteById")
 	public Result punchClockManagerDeleteById(HttpServletRequest request) {
 		String id="";
@@ -525,7 +452,6 @@ public class AdminController {
 		}
 		try {
 			adminServiceImpl.punchClockManagerDeleteById(id);
-			
 			adminServiceImpl.deletePunchClockRecordById(id);
 			return new Result(true, "删除成功");
 		} catch (Exception e) {
@@ -534,12 +460,5 @@ public class AdminController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
 	/*-------------------------打卡---------------------------*/
-	
-	
-	
-	
-	
-	
 }

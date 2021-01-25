@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 //获取session
 function getSession(role){
 	var that=this;

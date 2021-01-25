@@ -1,11 +1,3 @@
-/**
- * 公众号【C you again】
- * 个人博客:cyouagain.cn
- * 登录管理
- * 
- */
-
-
 //登录
 function login(){
 	var login=this.login_vue.login;

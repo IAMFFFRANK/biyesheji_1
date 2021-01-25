@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 var DORMBuildId;
 
 window.onload=function(){

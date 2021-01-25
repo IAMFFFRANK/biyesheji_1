@@ -1,12 +1,5 @@
 package com.frank.entity;
-/**
- * 打卡
- * @author 公众号【C you again】
- *
- */
-
 import java.sql.Date;
-
 public class PunchClock {
 	private String id;  //打卡记录
 	private String theme;  //打卡主题
@@ -48,9 +41,4 @@ public class PunchClock {
 		return "PunchClock [id=" + id + ", theme=" + theme + ", detail=" + detail + ", date=" + date + ", person="
 				+ person + "]";
 	}
-	
-	
-	
-	
-	
 }

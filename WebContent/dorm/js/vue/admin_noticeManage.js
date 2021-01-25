@@ -1,8 +1,3 @@
-/**
- *  公众号【C you again】
- */
-
-
 window.onload=function(){
 	getSession({role:"admin"});
 	var that=this;

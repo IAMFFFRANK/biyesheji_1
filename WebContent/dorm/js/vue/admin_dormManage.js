@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 
 window.onload=function(){
 	getSession({role:"admin"});
