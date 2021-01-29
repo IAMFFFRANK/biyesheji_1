@@ -56,7 +56,7 @@ body a {
 	margin-left: 5em;
 	width: 14em;
     height: 5em;
-    background-color: #4dc47d;
+    background-color: #0080c0;
     
 }  
 .logo a{
@@ -74,7 +74,7 @@ text-align:center;
 
 .top-menu {
 	float: right;
-	background: #4dc47d;
+	background: #0080c0;
 	margin: 13em 0 0 0;
 	padding: 0 11em 0 0em;
 }
@@ -133,7 +133,7 @@ text-align:center;
 	width: 100%;
 	height: 40px;
 	text-align: center;
-	background-color: #4dc47d;
+	background-color: #0080c0;
 	color: #fff;
 	font-size: 20px;
 	line-height: 40px;
@@ -169,7 +169,7 @@ text-align:center;
 /*-- footer --*/
 
 .copywrite {
-	background: #4dc47d;
+	background: #0080c0;
 	width: 100%;
 	height: 50px;
 	float: left;

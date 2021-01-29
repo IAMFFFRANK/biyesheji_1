@@ -3882,8 +3882,8 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-primary {
     color: #fff;
-    background-color: #4dc47d;
-    border-color: #4dc47d;
+    background-color: #0080c0;
+    border-color: #0080c0;
 }
 
 .btn-primary:focus,
@@ -4012,8 +4012,8 @@ fieldset[disabled] .btn-success.focus {
 
 .btn-info {
     color: #fff;
-    background-color: #4dc47d;
-    border-color: #4dc47d;
+    background-color: #0080c0;
+    border-color: #0080c0;
 }
 
 .btn-info:focus,
@@ -4358,7 +4358,7 @@ tbody.collapse.in {
     font-size: 14px;
     text-align: left;
     list-style: none;
-    background-color: #4dc47d;
+    background-color: #0080c0;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     border: 1px solid #ccc;
@@ -7234,7 +7234,7 @@ button.close {
 .modal-header {
     padding: 15px;
     border-bottom: 1px solid #e5e5e5;
-    background-color: #4dc47d;
+    background-color: #0080c0;
     color:#fff;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
